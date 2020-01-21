@@ -1,8 +1,6 @@
 body {
     font-family: 'Varela Round', sans-serif;
-    background-image: url(https://images.unsplash.com/photo-1579437406189-b4df7abea7b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80);
-    width: 100%;
-    background-size:cover;
+    background-color: #31f227;
 }
 
 .bg-image {
