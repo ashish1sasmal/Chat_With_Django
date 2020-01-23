@@ -16,7 +16,6 @@ def message(request,id):
             form.reciever=User.objects.get(id=id)
             form.save()
             messages.success(request,'message has been submitted!')
-    else:
-        form=ChatForm()
+    form=ChatForm()
     chats=Message.objects.filter(sender=request.user,reciever=User.objects.get(id=id))
     return render(request,'chat/chat.html',{'form':form,'chats':chats})
