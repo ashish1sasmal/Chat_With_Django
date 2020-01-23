@@ -12,9 +12,7 @@ def user_logout(request):
     logout(request)
     return redirect('home')
 
-# Create your views here.
-def signup(request):
-    if request
+
 
 def user_login(request):
     if request.method=="POST":
