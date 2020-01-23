@@ -12,7 +12,9 @@ def user_logout(request):
     logout(request)
     return redirect('home')
 
-
+def all_users(request):
+    users=User.objects.exclude(id=request.user.id)
+    return render(request,"user/user.html",{'users':users})
 
 def user_login(request):
     if request.method=="POST":
@@ -29,4 +31,21 @@ def user_login(request):
     return render(request,"user/login.html")
 
 def signup(request):
-    return render(request,"user/signup.html")
+    if request.method=="POST":
+        form = UserForm(data=request.POST)
+        if form.is_valid():
+            user=form.save(commit=False)
+            user.username=form.cleaned_data['email']
+            user.save()
+            profile=Profile(user=user)
+            profile.save()
+            messages.success(request,"Your account has been created!")
+            return redirect("home")
+    else:
+        form=UserForm()
+    return render(request,"user/signup.html",{"form":form})
+
+
+def user_profile(request,id):
+    user=User.objects.get(id=id)
+    return render(request, 'user/profile.html',{'user':user})

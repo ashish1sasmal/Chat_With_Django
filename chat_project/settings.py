@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
     'chat',
     'user',
     'django.contrib.admin',
@@ -40,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -72,26 +71,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'chat_project.wsgi.application'
-ASGI_APPLICATION = 'chat_project.routing.application'
-
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 50666)],
-        },
-    },
-}
 
 
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 50666)],
-        },
-    },
-}
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
