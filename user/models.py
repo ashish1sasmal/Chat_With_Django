@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    friends=models.ManyToManyField(User,related_name='friends',blank=True)
     ip=models.CharField(max_length=40,default='localhost')
     isp=models.CharField(max_length=70,default='default')
     state=models.CharField(max_length=40,default='default')

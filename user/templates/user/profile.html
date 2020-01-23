@@ -43,7 +43,7 @@
                             {% if us.id == user.id %}
                             <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
                             {% else %}
-                            <button type="button" class="btn btn-danger">Add Friend</button>
+                            <a href="{% url 'message' us.id %}"><button type="button" class="btn btn-primary" >Message</button></a>
                             {% endif %}
 
                         </div>
