@@ -10,7 +10,7 @@ from django.contrib import messages
 @login_required
 def user_logout(request):
     logout(request)
-    return redirect('home')
+    return redirect('chat:home')
 
 def all_users(request):
     users=User.objects.exclude(id=request.user.id)
@@ -25,7 +25,7 @@ def user_login(request):
             if user.is_active:
                 login(request,user)
                 messages.success(request,"Successfully logged in !")
-                return redirect('home')
+                return redirect('chat:home')
         else:
             messages.warning(request,"Wrong email id or password!")
     return render(request,"user/login.html")
@@ -40,7 +40,7 @@ def signup(request):
             profile=Profile(user=user)
             profile.save()
             messages.success(request,"Your account has been created!")
-            return redirect("home")
+            return redirect("chat:home")
     else:
         form=UserForm()
     return render(request,"user/signup.html",{"form":form})
